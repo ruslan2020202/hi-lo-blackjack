@@ -1,23 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <algorithm> 
-using namespace std;
 
-bool find_element(vector<char> list, char el){
+bool find_element(std::vector<char> list, char el){
     auto element = find(list.begin(), list.end(), el);
-    if (element != list.end()){
-        return true;
-    }else{
-        return false;
-    }
+    return element != list.end();
 }
 
 class Tactics{
     
     public:
-        const vector<char> high_cards {'k', 'd', 'v'};
-        const vector<char> mid_cards {'7', '8', '9'};
-        const vector<char> small_cards {'2', '3', '4', '5', '6'};
+        const std::vector<char> high_cards {'k', 'd', 'v'};
+        const std::vector<char> mid_cards {'7', '8', '9'};
+        const std::vector<char> small_cards {'2', '3', '4', '5', '6'};
         
     int count_card(char card){
         
@@ -31,17 +26,15 @@ class Tactics{
     }
 };
 
-
-
 int main(){
     int count = 0;
     while (true){
         char card;
         Tactics hi_lo;
-        cout << "\nEnter your card";
-        cin >> card;
+        std::cout << "Enter your card";
+        std::cin >> card;
         count += hi_lo.count_card(card);
-        cout << count;
+        std::cout << count << std::endl;
     }
     return 0;
 }
